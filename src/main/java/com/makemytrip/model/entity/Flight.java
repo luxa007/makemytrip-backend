@@ -19,7 +19,7 @@ public class Flight {
     private Instant actualDeparture;
     private Instant estimatedArrival;
     @Enumerated(EnumType.STRING) @Column(nullable = false)
-    private FlightStatus status = FlightStatus.SCHEDULED;
+    @Builder.Default private FlightStatus status = FlightStatus.SCHEDULED;
     private String delayReason;
     @Column(nullable = false, precision = 10, scale = 2) private BigDecimal basePrice;
     @Column(nullable = false, precision = 10, scale = 2) private BigDecimal currentPrice;

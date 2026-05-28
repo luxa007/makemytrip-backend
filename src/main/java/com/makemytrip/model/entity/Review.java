@@ -19,8 +19,8 @@ public class Review {
     @CollectionTable(name = "review_photos", joinColumns = @JoinColumn(name = "review_id"))
     @Column(name = "photo_url") @Builder.Default private List<String> photoUrls = new ArrayList<>();
     @ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name = "parent_review_id") private Review parentReview;
-    @Enumerated(EnumType.STRING) @Column(nullable = false) private ReviewStatus status = ReviewStatus.ACTIVE;
-    @Column(nullable = false) private int helpfulCount = 0;
+    @Enumerated(EnumType.STRING) @Column(nullable = false) @Builder.Default private ReviewStatus status = ReviewStatus.ACTIVE;
+    @Column(nullable = false) @Builder.Default private int helpfulCount = 0;
     @Column(name = "created_at", updatable = false) private Instant createdAt;
     @Column(name = "updated_at")                    private Instant updatedAt;
     @PrePersist void onCreate() { createdAt = updatedAt = Instant.now(); }

@@ -14,7 +14,7 @@ public class Booking {
     @ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name = "hotel_id")  private Hotel hotel;
     @ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name = "seat_id")   private Seat seat;
     @ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name = "room_id")   private Room room;
-    @Enumerated(EnumType.STRING) @Column(nullable = false) private BookingStatus status = BookingStatus.PENDING;
+    @Enumerated(EnumType.STRING) @Column(nullable = false) @Builder.Default private BookingStatus status = BookingStatus.PENDING;
     @Enumerated(EnumType.STRING) private SeatClass seatClass;
     @Column(nullable = false, precision = 10, scale = 2) private BigDecimal totalAmount;
     @Column(precision = 10, scale = 2)                   private BigDecimal refundAmount;

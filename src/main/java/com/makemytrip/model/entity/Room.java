@@ -15,6 +15,6 @@ public class Room {
     private String view;
     private String description;
     private String previewImageUrl;
-    @Column(nullable = false) private boolean available = true;
-    @Column(precision = 10, scale = 2) private BigDecimal surcharge = BigDecimal.ZERO;
+    @Column(nullable = false) @Builder.Default private boolean available = true;
+    @Column(precision = 10, scale = 2) @Builder.Default private BigDecimal surcharge = BigDecimal.ZERO;
 }

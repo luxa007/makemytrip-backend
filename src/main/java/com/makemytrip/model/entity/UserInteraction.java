@@ -16,7 +16,7 @@ public class UserInteraction {
     @ElementCollection
     @CollectionTable(name = "interaction_tags", joinColumns = @JoinColumn(name = "interaction_id"))
     @Column(name = "tag") @Builder.Default private List<String> tags = new ArrayList<>();
-    private int weight = 1;
+    @Builder.Default private int weight = 1;
     @Column(name = "created_at", updatable = false) private Instant createdAt;
     @PrePersist void onCreate() { createdAt = Instant.now(); }
 }
