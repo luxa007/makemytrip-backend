@@ -23,7 +23,10 @@ public class BookingServiceImpl implements BookingService {
     @Override
     @Transactional
     public BookingResponse createBooking(BookingRequest req) {
-        String email = SecurityContextHolder.getContext().getAuthentication().getName();
+        var auth = SecurityContextHolder.getContext().getAuthentication();
+        String email = (auth.getPrincipal() instanceof com.makemytrip.security.UserPrincipal up)
+            ? userRepository.findById(up.getId()).map(u -> u.getEmail()).orElse(auth.getName())
+            : auth.getName();
         User user = userRepository.findByEmail(email)
             .orElseThrow(() -> new RuntimeException("User not found"));
         Flight flight = flightRepository.findById(req.getFlightId())
