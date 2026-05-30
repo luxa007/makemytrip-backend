@@ -16,6 +16,7 @@ import BookFlight      from './pages/BookFlight';
 import Profile         from './pages/Profile';
 import HotelRooms      from './pages/HotelRooms';
 import { ToastProvider } from './components/Toast';
+import NotFound from './pages/NotFound';
 
 function App() {
   return (
@@ -37,7 +38,7 @@ function App() {
             <Route path="/cancellation"    element={<ProtectedRoute><Cancellation /></ProtectedRoute>} />
             <Route path="/book"            element={<ProtectedRoute><BookFlight /></ProtectedRoute>} />
             <Route path="/profile"         element={<ProtectedRoute><Profile /></ProtectedRoute>} />
-            <Route path="*"               element={<Navigate to="/" replace />} />
+            <Route path="*"               element={<NotFound />} />
           </Routes>
         </div>
         </ToastProvider>
