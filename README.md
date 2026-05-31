@@ -1,78 +1,35 @@
-# MakeMyTrip Backend — Spring Boot
+# MakeMyTrip Clone — Full Stack Booking Platform
 
-A production-grade travel booking platform built with Spring Boot, PostgreSQL, Redis, and WebSocket.
+Live Demo: https://makemytrip-platform.netlify.app
 
 ## Features
-- ✅ Flight & Hotel booking with seat/room selection
-- ✅ Cancellation & refund engine (full/50%/no refund based on timing)
-- ✅ Dynamic pricing with Redis caching
-- ✅ Live flight status via WebSocket + scheduler
-- ✅ Review & rating system with moderation
-- ✅ Personalized recommendations
-- ✅ JWT authentication & role-based security
-- ✅ Flyway database migrations
+- ✅ Cancellation & Refund System with auto refund calculation
+- ✅ Review & Rating System with photo upload and reply threading  
+- ✅ Live Flight Status with WebSocket real-time updates
+- ✅ Interactive Seat & Room Selection with 3D previews
+- ✅ Dynamic Pricing Engine with price freeze
+- ✅ Personalized Recommendations with collaborative filtering
 
 ## Tech Stack
-| Layer | Technology |
-|---|---|
-| Framework | Spring Boot 3.2.5 |
-| Database | PostgreSQL 16 |
-| Cache | Redis 7 |
-| Security | JWT + Spring Security |
-| Real-time | WebSocket (STOMP) |
-| Migrations | Flyway |
+**Backend:** Java 17, Spring Boot 3.2.5, PostgreSQL, Redis, Flyway, JWT, WebSocket  
+**Frontend:** React.js, CSS Variables Design System, Netlify  
+**Auth:** JWT with Spring Security  
+**Docs:** Swagger UI at /swagger-ui.html
 
 ## Quick Start
-
-### Prerequisites
-- Java 17
-- PostgreSQL
-- Redis
-- Maven
-
-### Setup
 ```bash
-# Create database
-sudo -u postgres psql -c "CREATE USER mmt WITH PASSWORD 'mmt';"
-sudo -u postgres psql -c "CREATE DATABASE makemytrip OWNER mmt;"
-
-# Run
+# Backend
+cd makemytrip
 mvn spring-boot:run
+
+# Frontend  
+cd frontend
+npm install && npm start
 ```
 
-App starts at `http://localhost:8080`
+## Demo Login
+Email: test@test.com  
+Password: test123
 
-## API Endpoints
-
-### Public
-| Method | Endpoint | Description |
-|---|---|---|
-| GET | /actuator/health | Health check |
-| GET | /api/v1/flights/{flightNumber}/status | Live flight status |
-| GET | /api/v1/flights/{id}/seats | Seat map |
-| GET | /api/v1/flights/{id}/pricing | Dynamic pricing |
-| GET | /api/v1/hotels/{id}/rooms | Room grid |
-| GET | /api/v1/reviews/flight/{id} | Flight reviews |
-
-### Protected (JWT required)
-| Method | Endpoint | Description |
-|---|---|---|
-| POST | /api/v1/bookings/{id}/cancel | Cancel booking |
-| GET | /api/v1/bookings/{id}/refund-status | Refund status |
-| GET | /api/v1/recommendations | Personalized recommendations |
-| POST | /api/v1/seats/{id}/select | Select seat |
-| POST | /api/v1/rooms/{id}/select | Select room |
-| POST | /api/v1/flights/{id}/freeze-price | Freeze price |
-
-### Admin only
-| Method | Endpoint | Description |
-|---|---|---|
-| PUT | /api/v1/flights/{id}/status | Update flight status |
-| DELETE | /api/v1/reviews/{id} | Remove review |
-
-## Architecture Highlights
-- **Pessimistic locking** on seat selection — prevents double booking
-- **Optimistic locking** on bookings and reviews — prevents concurrent corruption
-- **Outbox-ready** notification service — async email/SMS simulation
-- **Rate-capped** dynamic pricing — max 1.20x multiplier
-- **Depth-guarded** review replies — prevents infinite recursion
+## API Documentation
+Available at http://localhost:8080/swagger-ui.html when running locally.
