@@ -26,9 +26,9 @@ const STATUS_META = {
 };
 
 const MOCK_BOOKINGS = [
-  { id: 1, flightNumber: 'AI101', route: 'DEL → BOM', departureDate: '2026-06-15', seatClass: 'ECONOMY', totalAmount: 4800, status: 'CONFIRMED', bookedOn: '2026-05-20' },
-  { id: 2, flightNumber: 'AI202', route: 'BOM → BLR', departureDate: '2026-06-22', seatClass: 'BUSINESS', totalAmount: 12480, status: 'CONFIRMED', bookedOn: '2026-05-22' },
-  { id: 3, flightNumber: '6E501', route: 'BLR → HYD', departureDate: '2026-05-10', seatClass: 'ECONOMY', totalAmount: 2600, status: 'CANCELLED', bookedOn: '2026-05-01', refundStatus: 'COMPLETED', refundAmount: 1950 },
+  { id: 1, flightNumber: 'AI101', route: 'DEL → BOM', departureDate: '2026-08-15', seatClass: 'ECONOMY', totalAmount: 4800, status: 'CONFIRMED', bookedOn: '2026-05-20' },
+  { id: 2, flightNumber: 'AI202', route: 'BOM → BLR', departureDate: '2026-09-22', seatClass: 'BUSINESS', totalAmount: 12480, status: 'CONFIRMED', bookedOn: '2026-05-22' },
+  { id: 3, flightNumber: '6E501', route: 'BLR → HYD', departureDate: '2026-07-10', seatClass: 'ECONOMY', totalAmount: 2600, status: 'CANCELLED', bookedOn: '2026-05-01', refundStatus: 'COMPLETED', refundAmount: 1950 },
 ];
 
 function RefundTimeline({ status }) {

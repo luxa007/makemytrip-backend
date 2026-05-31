@@ -13,7 +13,7 @@ const STATUS_COLOR = {
 const DEFAULT_BOOKINGS = [
   { id:1, flightNumber:'AI101', airline:'Air India', route:'DEL → BOM', departureDate:'2026-08-15', departureTime:'06:30', seatClass:'ECONOMY',  totalAmount:4800,  status:'CONFIRMED', bookedOn:'2026-05-20', passengers:1 },
   { id:2, flightNumber:'AI202', airline:'Air India', route:'BOM → BLR', departureDate:'2026-09-22', departureTime:'09:15', seatClass:'BUSINESS', totalAmount:12480, status:'CONFIRMED', bookedOn:'2026-05-22', passengers:2 },
-  { id:3, flightNumber:'6E501', airline:'IndiGo',    route:'BLR → HYD', departureDate:'2026-04-10', departureTime:'11:30', seatClass:'ECONOMY',  totalAmount:2600,  status:'CANCELLED', bookedOn:'2026-04-01', passengers:1 },
+  { id:3, flightNumber:'6E501', airline:'IndiGo',    route:'BLR → HYD', departureDate:'2026-07-10', departureTime:'11:30', seatClass:'ECONOMY',  totalAmount:2600,  status:'CANCELLED', bookedOn:'2026-04-01', passengers:1 },
 ];
 
 const PREF_OPTIONS = {
